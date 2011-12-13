@@ -1,33 +1,41 @@
-ABOUT
+*ABOUT*
 
         Libmpsse is a library for interfacing with SPI/I2C devices via FTDI's FT-2232 family of USB to serial
         chips. Based around the libftdi library, it is written in C and includes a Python wrapper courtesy of
         swig.
 
-CODE EXAMPLES
+*CODE EXAMPLES*
 
         There are SPI and I2C code examples for both C and Python in the src/examples directory. After installing
         libmpsse, the C examples can be built by running:
 
-                $ make examples
+        {{{
+        make examples
+        }}}
 
         There are more detailed descriptions of the SPI and I2C APIs in docs/README.SPI and docs/README.I2C files.
 
-BUILDING APPLICATIONS
+*BUILDING APPLICATIONS*
 
         To build applications in Python, you must import the mpsse module:
 
-                from mpsse import `*`
+        {{{
+        from mpsse import *
+        }}}
 
         To build applications in C, you must include the mpsse.h header file:
 
-                `#`include <mpsse.h>
+        {{{
+        #include <mpsse.h>
+        }}}
 
         ...and also link your program against the libmpsse library:
 
-                gcc test.c -o test -lmpsse
+        {{{
+        gcc test.c -o test -lmpsse
+        }}}
 
-PHYSICAL CONNECTIONS
+*PHYSICAL CONNECTIONS*
 
         In order to speak to SPI or I2C devices, you must establish the proper physical connections between the target
         device and your FTDI chip. The exact pin out of your target device and FTDI chip will differ based on the chips
