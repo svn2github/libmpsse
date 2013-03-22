@@ -1,0 +1,5 @@
+#summary Wiki table of contents.
+
+  * Installation
+  * Usage
+  * Examples
