@@ -2,4 +2,5 @@
 
   * Installation
   * Usage
-  * Examples
+  * [Examples Example Code]
+    * [Examples#SPI SPI example code]
