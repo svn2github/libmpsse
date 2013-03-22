@@ -3,5 +3,6 @@
   * Installation
   * [CAPI Using libmpsse in C]
     * [CAPI#Initialization Initializing libmpsse]
+    * [CAPI#Deinitialization Deinitializing libmpsse]
   * [ExampleCode Example Code]
     * [ExampleCode#SPI SPI example code]
