@@ -1,6 +1,7 @@
 #summary Summary of libmpsse's C API.
 
 = Initialization =
+----
 
 == MPSSE ==
 
@@ -77,6 +78,7 @@ struct mpsse_context *OpenIndex(int vid, int pid, enum modes mode, int freq, int
 || Pointer to an MPSSE context structure. || mpsse->open == 1 || mpsse->open == 0 ||
 
 = Deinitialization =
+----
 
 == Close ==
 
