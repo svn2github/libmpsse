@@ -1,6 +1,7 @@
 #summary Wiki table of contents.
 
   * Installation
-  * Usage
+  * [CAPI Using libmpsse in C]
+    * [CAPI#Initialization Initializing libmpsse]
   * [ExampleCode Example Code]
     * [ExampleCode#SPI SPI example code]
