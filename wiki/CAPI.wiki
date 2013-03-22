@@ -114,6 +114,22 @@ char *Read(struct mpsse_context *mpsse, int size);
 || *Return Value* || *Success* || *Failure* ||
 || Returns a pointer to the read data || !NULL || NULL ||
 
+== ReadBits ==
+
+Performs a bit-wise read of up to 8 bits.
+
+{{{
+char ReadBits(struct mpsse_context *mpsse, int size);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| size || Number of bits to read || 1-8 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns a byte of read bits || 0-255 || 0 ||
+
 == FastRead ==
 
 Reads data over the selected serial protocol with minimal latency.
