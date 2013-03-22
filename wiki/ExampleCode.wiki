@@ -1,4 +1,6 @@
-= Python =
+= SPI =
+
+== Python ==
 
 The following Python code demonstrates using libmpsse to read 256 bytes from a standard SPI flash chip:
 
@@ -13,8 +15,7 @@ flash.Stop()
 flash.Close()
 }}}
 
-
-= C =
+== C ==
 
 The following C code demonstrates using libmpsse to read 256 bytes from a standard SPI flash chip:
 
