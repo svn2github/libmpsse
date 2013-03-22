@@ -94,3 +94,40 @@ void Close(struct mpsse_context *mpsse);
 
 || *Return Value* || *Success* || *Failure* ||
 || Returns void || void || void ||
+
+= Reading =
+----
+
+== Read ==
+
+Reads data over the selected serial protocol.
+
+{{{
+char *Read(struct mpsse_context *mpsse, int size);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| size || Number of bytes to read || 1 - 2,147,483,647 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns a pointer to the read data || !NULL || NULL ||
+
+== FastRead ==
+
+Reads data over the selected serial protocol with minimal latency.
+For use only with SPI0, SPI1, SPI2, SPI3 modes when latency is critical to the read operation.
+
+{{{
+int FastRead(struct mpsse_context *mpsse, char *data, int size);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| data || Destination buffer pointer || A valid, writable memory address ||
+|| size || Number of bytes to read || 1 - 2,147,483,647 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
