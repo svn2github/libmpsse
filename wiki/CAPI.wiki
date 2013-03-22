@@ -1,0 +1,77 @@
+#summary Summary of libmpsse's C API.
+
+= Initialization =
+
+== MPSSE ==
+
+This function opens and initializes the first interface of the first FTDI device found.
+
+{{{
+struct mpsse_context *MPSSE(enum modes mode, int freq, int endianess);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mode || Mode to open the device in || SPI0, SPI1, SPI2, SPI3, I2C, GPIO, BITBANG ||
+|| freq || Clock frequency to use for the specified mode || 1 - 30,000,000 ||
+|| endianess || Specifies how data is clocked in/out || MSB, LSB ||
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Pointer to an MPSSE context structure. || mpsse->open == 1 || mpsse->open == 0 ||
+
+The following FTDI devices are searched for by this function:
+
+|| *VID* || *PID* || *Description* ||
+|| 0x0403 || 0x6010 || FT2232 Future Technology Devices International, Ltd ||
+|| 0x0403|| 0x6011 || FT4232 Future Technology Devices International, Ltd ||
+|| 0x0403 || 0x6014 || FT232H Future Technology Devices International, Ltd ||
+|| 0x0403 || 0x8878 || Bus Blaster v2 (channel A) ||
+|| 0x0403 || 0x8879 || Bus Blaster v2 (channel B) ||
+|| 0x0403 || 0xBDC8 || Turtelizer JTAG/RS232 Adapter A ||
+|| 0x0403 || 0xCFF8 || Amontec JTAGkey ||
+|| 0x15BA || 0x0003 || Olimex Ltd. OpenOCD JTAG ||
+|| 0x15BA || 0x0004 || Olimex Ltd. OpenOCD JTAG TINY ||
+
+== Open ==
+
+This function opens an FTDI device by VID/PID.
+
+{{{
+struct mpsse_context *Open(int vid, int pid, enum modes mode, int freq, int endianess, int interface, const char *description, const char *serial);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| vid || Device USB vendor ID || 0 - 65535 ||
+|| pid || Device USB product ID || 0 - 65535 ||
+|| mode || Mode to open the device in || SPI0, SPI1, SPI2, SPI3, I2C, GPIO, BITBANG ||
+|| freq || Clock frequency to use for the specified mode || 1 - 30,000,000 ||
+|| endianess || Specifies how data is clocked in/out || MSB, LSB ||
+|| interface || FTDI interface to use || IFACE_A, IFACE_B, IFACE_C, IFACE_D ||
+|| description || Device product description (set to NULL if not needed) || Product description string ||
+|| serial || Device serial number (set to NULL if not needed) || Serial number string ||
+  
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Pointer to an MPSSE context structure. || mpsse->open == 1 || mpsse->open == 0 ||
+
+== OpenIndex ==
+
+This function opens an FTDI device by VID/PID/index.
+
+{{{
+struct mpsse_context *OpenIndex(int vid, int pid, enum modes mode, int freq, int endianess, int interface, const char *description, const char *serial, int index);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| vid || Device USB vendor ID || 0 - 65535 ||
+|| pid || Device USB product ID || 0 - 65535 ||
+|| mode || Mode to open the device in || SPI0, SPI1, SPI2, SPI3, I2C, GPIO, BITBANG ||
+|| freq || Clock frequency to use for the specified mode || 1 - 30,000,000 ||
+|| endianess || Specifies how data is clocked in/out || MSB, LSB ||
+|| interface || FTDI interface to use || IFACE_A, IFACE_B, IFACE_C, IFACE_D ||
+|| description || Device product description (set to NULL if not needed) || Product description string ||
+|| serial || Device serial number (set to NULL if not needed) || Serial number string ||
+|| index || Number of matching device to open if there are more than one, starts with zero || 0 - n ||
+  
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Pointer to an MPSSE context structure. || mpsse->open == 1 || mpsse->open == 0 ||
