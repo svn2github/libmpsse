@@ -4,7 +4,7 @@
 
 == MPSSE ==
 
-This function opens and initializes the first interface of the first FTDI device found.
+Opens and initializes the first interface of the first FTDI device found.
 
 {{{
 struct mpsse_context *MPSSE(enum modes mode, int freq, int endianess);
@@ -33,7 +33,7 @@ The following FTDI devices are searched for by this function:
 
 == Open ==
 
-This function opens an FTDI device by VID/PID.
+Opens an FTDI device by VID/PID.
 
 {{{
 struct mpsse_context *Open(int vid, int pid, enum modes mode, int freq, int endianess, int interface, const char *description, const char *serial);
@@ -55,7 +55,7 @@ struct mpsse_context *Open(int vid, int pid, enum modes mode, int freq, int endi
 
 == OpenIndex ==
 
-This function opens an FTDI device by VID/PID/index.
+Opens an FTDI device by VID/PID/index.
 
 {{{
 struct mpsse_context *OpenIndex(int vid, int pid, enum modes mode, int freq, int endianess, int interface, const char *description, const char *serial, int index);
@@ -75,3 +75,20 @@ struct mpsse_context *OpenIndex(int vid, int pid, enum modes mode, int freq, int
 
 || *Return Value* || *Success* || *Failure* ||
 || Pointer to an MPSSE context structure. || mpsse->open == 1 || mpsse->open == 0 ||
+
+= Deinitialization =
+
+== Close ==
+
+Closes the device, deinitializes libftdi, and frees the MPSSE context pointer.
+
+{{{
+void Close(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns void || void || void ||
