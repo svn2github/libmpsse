@@ -341,3 +341,89 @@ int PinHigh(struct mpsse_context *mpsse, int pin);
 
 || *Return Value* || *Success* || *Failure* ||
 || Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+== PinLow ==
+
+Sets the specified pin low. 
+
+{{{
+int PinLow(struct mpsse_context *mpsse, int pin);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| pin || The pin number to set low. || GPIOL0, GPIOL1, GPIOL2, GPIOL3, GPIOH0, GPIOH1, GPIOH2, GPIOH3, GPIOH4, GPIOH5, GPIOH6, GPIOH7 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+----
+= BITBANG =
+
+== ReadPins ==
+
+Reads the state of the chip's pins.
+For use in BITBANG mode only.
+
+{{{
+int ReadPins(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+|| *Return Value* || *High pin's bits set to* || *Low pin's bits set to* ||
+|| Returns a byte with the corresponding pin's bits set || 1 || 0 ||
+
+== PinState ==
+
+Checks if a specific pin is high or low. 
+For use in BITBANG mode only.
+
+{{{
+int PinState(struct mpsse_context *mpsse, int pin, int state);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| pin || The pin number of interest || 0 - 7 ||
+|| state || The state of the pins, as returned by ReadPins; if set to -1, ReadPins will automatically be called || -1 - 255 ||
+
+
+|| *Return Value* || *Pin is high* || *Pin is low* ||
+|| Returns the state of the specified pin || 1 || 0 ||
+
+== WritePins ==
+
+Sets the input/output value of all pins.
+For use in BITBANG mode only.
+
+{{{
+int WritePins(struct mpsse_context *mpsse, uint8_t data);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| data || Byte indicating bit hi/low value of each pin || 0 - 255 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+== SetDirection ==
+
+Manually set the input/output direction of all pins.
+For use in BITBANG mode only.
+
+{{{
+int SetDirection(struct mpsse_context *mpsse, uint8_t direction);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| direction || Byte indicating input/output direction of each bit (1 is output, 0 is input) || 0 - 255 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
