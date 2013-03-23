@@ -307,3 +307,35 @@ void SendNacks(struct mpsse_context *mpsse);
 
 || *Return Value* || *Success* || *Failure* ||
 || Returns void || void || void ||
+
+
+== Tristate ==
+
+Places all I/O pins into a tristate mode.
+
+{{{
+int Tristate(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+= GPIO =
+
+Sets the specified pin high. 
+
+{{{
+int PinHigh(struct mpsse_context *mpsse, int pin);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| pin || The pin number to set high. || GPIOL0, GPIOL1, GPIOL2, GPIOL3, GPIOH0, GPIOH1, GPIOH2, GPIOH3, GPIOH4, GPIOH5, GPIOH6, GPIOH7 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
