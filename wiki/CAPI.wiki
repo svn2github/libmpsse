@@ -147,3 +147,63 @@ int FastRead(struct mpsse_context *mpsse, char *data, int size);
 
 || *Return Value* || *Success* || *Failure* ||
 || Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+= Writing =
+
+== Write ==
+
+Writes data over the selected serial protocol.
+
+{{{
+int Write(struct mpsse_context *mpsse, char *data, int size);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| data || Buffer of data to write || A valid, readable memory address ||
+|| size || Number of bytes to write || 1 - 2,147,483,647 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+== WriteBits ==
+
+Performs a bit-wise write of up to 8 bits at a time.
+
+{{{
+int WriteBits(struct mpsse_context *mpsse, char bits, int size);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| bits || A byte of bits to be written || 0 - 255 ||
+|| size || Number of bits to write || 1 - 8 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+== FastWrite ==
+
+Writes data over the selected serial protocol with minimal latency.
+For use only with SPI0, SPI1, SPI2, SPI3 modes when latency is critical to the write operation.
+ *
+ * @mpsse - libmpsse context pointer.
+ * @data  - The data to write.
+ * @size  - The number of bytes to write.
+ *
+ * Returns MPSSE_OK on success, MPSSE_FAIL on failure.
+ */
+{{{
+int FastWrite(struct mpsse_context *mpsse, char *data, int size);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| data || A buffer of bytes to write || A valid, readable memory address ||
+|| size || Number of bytes to write || 1 - 2,147,483,647 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
