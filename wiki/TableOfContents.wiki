@@ -4,6 +4,7 @@
   * [CAPI Using libmpsse in C]
     * [CAPI#Initialization Initializing libmpsse]
     * [CAPI#Deinitialization Deinitializing libmpsse]
+    * [CAPI#Assertation Asserting start and stop conditions]
     * [CAPI#Reading Reading data]
     * [CAPI#Writing Writing data]
     * [CAPI#SPI SPI specific functionality]
