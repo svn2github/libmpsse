@@ -6,5 +6,7 @@
     * [CAPI#Deinitialization Deinitializing libmpsse]
     * [CAPI#Reading Reading data]
     * [CAPI#Writing Writing data]
+    * [CAPI#SPI SPI specific functionality]
+    * [CAPI#I2C I2C specific functionality]
   * [ExampleCode Example Code]
     * [ExampleCode#SPI SPI example code]
