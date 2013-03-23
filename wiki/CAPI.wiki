@@ -188,13 +188,7 @@ int WriteBits(struct mpsse_context *mpsse, char bits, int size);
 
 Writes data over the selected serial protocol with minimal latency.
 For use only with SPI0, SPI1, SPI2, SPI3 modes when latency is critical to the write operation.
- *
- * @mpsse - libmpsse context pointer.
- * @data  - The data to write.
- * @size  - The number of bytes to write.
- *
- * Returns MPSSE_OK on success, MPSSE_FAIL on failure.
- */
+
 {{{
 int FastWrite(struct mpsse_context *mpsse, char *data, int size);
 }}}
