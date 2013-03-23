@@ -160,7 +160,7 @@ int Write(struct mpsse_context *mpsse, char *data, int size);
 
 || *Argument* || *Description* || *Accepted Values* ||
 || mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
-|| data || Buffer of data to write || A valid, readable memory address ||
+|| data || Buffer of bytes to write || A valid, readable memory address ||
 || size || Number of bytes to write || 1 - 2,147,483,647 ||
 
 
@@ -201,3 +201,21 @@ int FastWrite(struct mpsse_context *mpsse, char *data, int size);
 
 || *Return Value* || *Success* || *Failure* ||
 || Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+== Transfer ==
+
+Reads and writes data over the selected serial protocol.
+For use only with SPI0, SPI1, SPI2, SPI3 modes.
+
+{{{
+char *Transfer(struct mpsse_context *mpsse, char *data, int size);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| data || Buffer of bytes to write || A valid, readable memory address ||
+|| size || Number of bytes to transfer || 1 - 2,147,483,647 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns a pointer to the read data || !NULL || NULL ||
