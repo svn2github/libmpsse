@@ -163,24 +163,6 @@ char ReadBits(struct mpsse_context *mpsse, int size);
 || *Return Value* || *Success* || *Failure* ||
 || Returns a byte of read bits || 0-255 || 0 ||
 
-== FastRead ==
-
-Reads data over the selected serial protocol with minimal latency.
-For use only with SPI0, SPI1, SPI2, SPI3 modes when latency is critical to the read operation.
-
-{{{
-int FastRead(struct mpsse_context *mpsse, char *data, int size);
-}}}
-
-|| *Argument* || *Description* || *Accepted Values* ||
-|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
-|| data || Destination buffer pointer || A valid, writable memory address ||
-|| size || Number of bytes to read || 1 - 2,147,483,647 ||
-
-
-|| *Return Value* || *Success* || *Failure* ||
-|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
-
 ----
 = Writing =
 
@@ -218,23 +200,8 @@ int WriteBits(struct mpsse_context *mpsse, char bits, int size);
 || *Return Value* || *Success* || *Failure* ||
 || Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
 
-== FastWrite ==
-
-Writes data over the selected serial protocol with minimal latency.
-For use only with SPI0, SPI1, SPI2, SPI3 modes when latency is critical to the write operation.
-
-{{{
-int FastWrite(struct mpsse_context *mpsse, char *data, int size);
-}}}
-
-|| *Argument* || *Description* || *Accepted Values* ||
-|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
-|| data || A buffer of bytes to write || A valid, readable memory address ||
-|| size || Number of bytes to write || 1 - 2,147,483,647 ||
-
-
-|| *Return Value* || *Success* || *Failure* ||
-|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+----
+= SPI =
 
 == Transfer ==
 
@@ -253,3 +220,90 @@ char *Transfer(struct mpsse_context *mpsse, char *data, int size);
 
 || *Return Value* || *Success* || *Failure* ||
 || Returns a pointer to the read data || !NULL || NULL ||
+
+== FastRead ==
+
+Reads data over the selected serial protocol with minimal latency.
+For use only with SPI0, SPI1, SPI2, SPI3 modes when latency is critical to the read operation.
+
+{{{
+int FastRead(struct mpsse_context *mpsse, char *data, int size);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| data || Destination buffer pointer || A valid, writable memory address ||
+|| size || Number of bytes to read || 1 - 2,147,483,647 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+== FastWrite ==
+
+Writes data over the selected serial protocol with minimal latency.
+For use only with SPI0, SPI1, SPI2, SPI3 modes when latency is critical to the write operation.
+
+{{{
+int FastWrite(struct mpsse_context *mpsse, char *data, int size);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| data || A buffer of bytes to write || A valid, readable memory address ||
+|| size || Number of bytes to write || 1 - 2,147,483,647 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+----
+= I2C =
+
+== GetAck ==
+
+Returns the last received ACK bit.
+For use only with I2C mode.
+
+{{{
+int GetAck(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+
+|| *Return Value* || *ACK* || *NACK* ||
+|| Returns the ACK value || 0 || 1 ||
+
+== SendAcks ==
+
+Causes libmpsse to send ACKs after each read byte. 
+For use only with I2C mode.
+
+{{{
+void SendAcks(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns void || void || void ||
+
+== SendNacks ==
+
+Causes libmpsse to send NACKs after each read byte
+For use only with I2C mode.
+
+{{{
+void SendNacks(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns void || void || void ||
