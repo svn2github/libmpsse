@@ -427,3 +427,20 @@ int SetDirection(struct mpsse_context *mpsse, uint8_t direction);
 
 || *Return Value* || *Success* || *Failure* ||
 || Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+----
+= Misc =
+
+== ErrorString ==
+Retrieves the last error string from libftdi.
+
+{{{
+const char *ErrorString(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| A pointer to a string constant || Error string || NULL_CONTEXT_ERROR_MSG ||
