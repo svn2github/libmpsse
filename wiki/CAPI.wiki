@@ -326,6 +326,8 @@ int Tristate(struct mpsse_context *mpsse);
 
 = GPIO =
 
+== PinHigh ==
+
 Sets the specified pin high. 
 
 {{{
