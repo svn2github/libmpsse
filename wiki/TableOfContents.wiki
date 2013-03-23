@@ -4,5 +4,7 @@
   * [CAPI Using libmpsse in C]
     * [CAPI#Initialization Initializing libmpsse]
     * [CAPI#Deinitialization Deinitializing libmpsse]
+    * [CAPI#Reading Reading data
+    * [CAPI#Writing Writing data
   * [ExampleCode Example Code]
     * [ExampleCode#SPI SPI example code]
