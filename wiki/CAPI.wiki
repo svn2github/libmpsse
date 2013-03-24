@@ -451,7 +451,7 @@ int SetDirection(struct mpsse_context *mpsse, uint8_t direction);
 == FlushAfterRead ==
 
 Enables or disables explicit flushing of the FTDI chip's RX buffers after each read operation.
-Flushing is disable by default.
+Flushing is disabled by default.
 
 {{{
 void FlushAfterRead(struct mpsse_context *mpsse, int tf);
