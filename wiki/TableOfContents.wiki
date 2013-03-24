@@ -12,5 +12,6 @@
     * [CAPI#GPIO GPIO specific functions]
     * [CAPI#BITBANG BITBANG specific functions]
     * [CAPI#Miscellaneous Miscellaneous functions]
+  * Using libmpsse in Python
   * [ExampleCode Example Code]
     * [ExampleCode#SPI SPI example code]
