@@ -446,7 +446,7 @@ int SetDirection(struct mpsse_context *mpsse, uint8_t direction);
 || Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
 
 ----
-= Misc =
+= Miscellaneous =
 
 == FlushAfterRead ==
 
