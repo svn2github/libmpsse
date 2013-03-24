@@ -431,6 +431,54 @@ int SetDirection(struct mpsse_context *mpsse, uint8_t direction);
 ----
 = Misc =
 
+== FlushAfterRead ==
+
+Enables or disables explicit flushing of the FTDI chip's RX buffers after each read operation.
+Flushing is disable by default.
+
+{{{
+void FlushAfterRead(struct mpsse_context *mpsse, int tf);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| tf || Set to 1 to enable flushing, or 0 to disable flushing || 0, 1 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns void || void || void ||
+
+== SetLoopback ==
+
+Enable / disable the FTDI chip's internal loopback.
+
+
+{{{
+int SetLoopback(struct mpsse_context *mpsse, int enable);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| enable || 0 to disable loopback, 1 to enable loopback || 0, 1 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
+
+== GetClock ==
+
+Gets the currently configured clock rate.
+
+{{{
+int GetClock(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns the current clock rate, in hertz || Clock rate in hertz || 0 ||
+
 == ErrorString ==
 Retrieves the last error string from libftdi.
 
@@ -444,3 +492,59 @@ const char *ErrorString(struct mpsse_context *mpsse);
 
 || *Return Value* || *Success* || *Failure* ||
 || A pointer to a string constant || Error string || NULL_CONTEXT_ERROR_MSG ||
+
+== Version ==
+
+Obtain the libmpsse version number. 
+
+{{{
+char Version(void);
+}}}
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns the libmpsse version number || High nibble is major version, low nibble is minor version || 0 ||
+
+== GetDescription ==
+
+Returns the description of the FTDI chip, if opened via [CAPI#MPSSE MPSSE].
+
+{{{
+const char *GetDescription(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| A pointer to a string constant || FTDI Device description || NULL ||
+
+== GetPid ==
+
+Returns the product ID of the FTDI chip.
+
+{{{
+int GetPid(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| The FTDI device's product ID || Product ID || 0 ||
+
+== GetVid ==
+
+Returns the vendor ID of the FTDI chip.
+
+{{{
+int GetVid(struct mpsse_context *mpsse);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| The FTDI device's vendor ID || Vendor ID || 0 ||
