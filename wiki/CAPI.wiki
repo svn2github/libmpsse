@@ -221,6 +221,22 @@ char *Transfer(struct mpsse_context *mpsse, char *data, int size);
 || *Return Value* || *Success* || *Failure* ||
 || Returns a pointer to the read data || !NULL || NULL ||
 
+== SetCSIdle ==
+
+Sets the idle state of the chip select pin. CS idles high by default.
+
+{{{
+void SetCSIdle(struct mpsse_context *mpsse, int idle);
+}}}
+
+|| *Argument* || *Description* || *Accepted Values* ||
+|| mpsse || MPSSE context pointer || Any context pointer returned by one of libmpsse's [CAPI#Initialization initialization functions] ||
+|| idle || Set to 1 to idle high, 0 to idle low || 0, 1 ||
+
+
+|| *Return Value* || *Success* || *Failure* ||
+|| Returns void || void|| void ||
+
 == FastRead ==
 
 Reads data over the selected serial protocol with minimal latency.
@@ -324,6 +340,7 @@ int Tristate(struct mpsse_context *mpsse);
 || *Return Value* || *Success* || *Failure* ||
 || Returns an MPSSE status value || MPSSE_OK || MPSSE_FAIL ||
 
+----
 = GPIO =
 
 == PinHigh ==
