@@ -1,8 +1,8 @@
 #summary Wiki table of contents.
 
   * [Installation Installation]
-     *[Installation#Prerequisites Prerequisites]
-     *[Installation#Installation Building and installing libmpsse]
+     * [Installation#Prerequisites Prerequisites]
+     * [Installation#Installation Building and installing libmpsse]
   * [CAPI Using libmpsse in C]
     * [CAPI#Initialization Initializing libmpsse]
     * [CAPI#Deinitialization Deinitializing libmpsse]
