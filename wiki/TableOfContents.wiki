@@ -11,7 +11,7 @@
     * [CAPI#Writing Writing data]
     * [CAPI#SPI SPI functions]
     * [CAPI#I2C I2C functions]
-    * [CAPI#GPIO GPIO specific functions]
+    * [CAPI#GPIO GPIO functions]
     * [CAPI#BITBANG BITBANG functions]
     * [CAPI#Miscellaneous Miscellaneous functions]
   * Using libmpsse in Python
