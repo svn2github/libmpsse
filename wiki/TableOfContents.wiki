@@ -9,10 +9,10 @@
     * [CAPI#Assertion Start and stop conditions]
     * [CAPI#Reading Reading data]
     * [CAPI#Writing Writing data]
-    * [CAPI#SPI SPI specific functions]
-    * [CAPI#I2C I2C specific functions]
+    * [CAPI#SPI SPI functions]
+    * [CAPI#I2C I2C functions]
     * [CAPI#GPIO GPIO specific functions]
-    * [CAPI#BITBANG BITBANG specific functions]
+    * [CAPI#BITBANG BITBANG functions]
     * [CAPI#Miscellaneous Miscellaneous functions]
   * Using libmpsse in Python
   * [ExampleCode Example Code]
